@@ -1,0 +1,125 @@
+HOW TO RUN THE PROGRAM
+
+This guide explains how to compile and run the program `10422030.cpp` on both Linux and Windows systems.
+
+Name: Nguyen Lam Minh Hoa
+ID: 10422030
+
+======================================
+1. REQUIREMENTS
+======================================
+- A C++ compiler that supports C++11 or later
+  (e.g., g++, clang++, MinGW g++)
+
+- The following files:
+    • 10422030.cpp           — source code file
+    • tests.txt              — input file containing graph data
+    • output_10422030.txt    — output file (will be created)
+
+======================================
+2. HOW TO COMPILE AND RUN
+======================================
+
+--- Linux / macOS (using g++) ---
+
+Step 1: Open Terminal.
+
+Step 2: Navigate to the folder where your files are located:
+    cd /path/to/your/folder
+
+Step 3: Compile the program:
+    g++ 10422030.cpp -o 10422030
+
+Step 4: Run the program:
+    ./10422030 tests.txt output_10422030.txt
+
+
+--- Windows (using MinGW or any g++ installed) ---
+
+Step 1: Open Command Prompt or PowerShell.
+
+Step 2: Navigate to the folder where your files are located:
+    cd C:\Path\To\Your\Folder
+
+Step 3: Compile the program:
+    g++ 10422030.cpp -o 10422030
+
+Step 4: Run the program (but in cmd not PowerShell)
+    10422030 tests.txt output_10422030.txt
+
+Caution:
+
+# Compile (for Windows / Linux if have MinGW or WSL)
+g++ 10422030.cpp -o 10422030
+
+# Run (Windows PowerShell)
+.\10422030.exe tests.txt output_10422030.txt
+
+# Run (Linux or CMD Windows)
+./10422030 tests.txt output_10422030.txt
+
+======================================
+3. NOTES
+======================================
+- The input file `tests.txt` must follow the correct format:
+    • First line: Number of graphs
+    • For each graph:
+        - Line 1: number of vertices
+        - Next n lines: vertex name and cycle time (e.g., A, 2)
+        - Then list of edges: u, v, weight
+
+- The output will include:
+    • The minimum time from vertex A to G
+    • The path from A to G
+    Both are printed to terminal and saved to `output_10422030.txt`
+
+======================================
+4. EXAMPLE
+======================================
+
+Input (tests.txt):
+------------------
+2
+7
+A, 2
+B, 3
+C, 5
+D, 4
+E, 6
+F, 2
+G, 1
+A, B, 4
+A, C, 2
+B, D, 5
+C, D, 8
+C,E, 10
+D, F, 6
+E, F, 3
+F, G, 1
+7
+A, 2
+B, 3
+C, 4
+D, 2
+E, 5
+F, 3
+G, 1
+A, B, 2
+A, C, 4
+B, D, 3
+C, E, 5
+D, E, 1
+D, F, 2
+E, G, 3
+F, G, 4
+
+Run:
+    ./10422030 tests.txt output_10422030.txt
+
+Output:
+    (In terminal and written to output file)
+    19
+    A B D F G
+    13
+    A B D E G
+
