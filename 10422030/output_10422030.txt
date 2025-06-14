@@ -1,0 +1,4 @@
+19
+A B D F G
+13
+A B D E G

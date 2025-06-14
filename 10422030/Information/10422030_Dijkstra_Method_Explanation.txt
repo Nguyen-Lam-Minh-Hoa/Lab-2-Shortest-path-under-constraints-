@@ -1,0 +1,62 @@
+
+Title: Explanation of Shortest Path Implementation Method
+
+Author: 10422030
+Name: Nguyen Lam Minh Hoa
+Date: June 14, 2025
+
+------------------------------------------------------------
+Context:
+In this lab assignment, we are required to implement Dijkstra's algorithm with additional constraints (traffic light waiting times), without using any built-in data structures or libraries capable of solving shortest path problems.
+
+------------------------------------------------------------
+Approach Used in Submitted Code:
+
+Our implementation strictly adheres to the rule by:
+✔ Manually implementing the selection of the minimum distance vertex via a custom function `find_min_distance_vertex`.
+✔ Using basic data structures such as `vector`, `map`, and `string` which are not specialized for shortest path algorithms.
+✔ Avoiding `priority_queue` or any optimized container that could implicitly implement heap-based Dijkstra.
+
+Function used:
+```cpp
+int find_min_distance_vertex(const vector<int>& distances, const vector<bool>& visited) {
+    int min_dist = 1e9;
+    int min_index = -1;
+    for (int i = 0; i < distances.size(); ++i) {
+        if (!visited[i] && distances[i] < min_dist) {
+            min_dist = distances[i];
+            min_index = i;
+        }
+    }
+    return min_index;
+}
+```
+
+------------------------------------------------------------
+Comparison with Other Methods:
+
+1. **Built-in `priority_queue` (NOT USED - DISALLOWED)**
+   - Pros: Very fast (O(E log V)), ideal for large graphs.
+   - Cons: Violates the lab restriction, as it is a built-in optimized structure for shortest path.
+   - Verdict:  Not Allowed.
+
+2. **Custom `find_min_distance_vertex` (USED)**
+   - Pros: Fully compliant with lab rules; easy to understand.
+   - Cons: Less efficient (O(V^2)) for large graphs.
+   - Verdict:  Allowed and used in this implementation.
+
+3. **Manually implemented Min-Heap (NOT USED - Optional)**
+   - Pros: Optimized for performance while still manual.
+   - Cons: Requires more code and heap operations; allowed only if manually implemented.
+   - Verdict:  Allowed (if implemented from scratch) but not used.
+
+4. **Fibonacci Heap / 3rd Party Libraries**
+   - Pros: Fastest performance theoretically.
+   - Cons: All considered "built-in" or third-party and hence disallowed.
+   - Verdict:  Not Allowed.
+
+------------------------------------------------------------
+Conclusion:
+
+The current implementation favors simplicity and rule compliance over raw performance. It ensures full transparency, readability, and meets the expectations outlined in the lab assignment.
+
